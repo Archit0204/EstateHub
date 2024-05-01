@@ -23,7 +23,14 @@ const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Profile"
     },
-
+    listedProperties: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Property"
+    }],
+    favorites: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Property"
+    }],
 })
 
 module.exports = mongoose.model("User", UserSchema);
