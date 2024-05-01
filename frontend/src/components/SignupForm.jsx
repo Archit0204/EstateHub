@@ -22,7 +22,7 @@ function SignupForm({setAuthType}) {
 
     function changeHandler(e) {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
-        console.log(formData);
+        // console.log(formData);
     }
 
     async function submitHandler(e) {
