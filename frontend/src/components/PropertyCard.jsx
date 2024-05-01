@@ -12,7 +12,12 @@ export function PropertyCard({property}) {
     const loggedIn = useRecoilValue(loginAtom);
 
     function viewDetailHandler() {
+        if (loggedIn) {
             navigate(`/property/${property._id}`);
+        }
+        else {
+            toast.error("SignIn to access this!");
+        }
     }
     
     return(

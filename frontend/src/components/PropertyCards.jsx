@@ -44,8 +44,6 @@ export function PropertyCards() {
 
     }, [])
 
-    console.log(properties);
-
     return(
         <div className="flex justify-center items-center">
             {/* <PropertyCard property={properties[0]} />  */}
