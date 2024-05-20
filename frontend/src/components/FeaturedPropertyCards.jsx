@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-export function PropertyCards({useCase}) {
-    
+export function FeaturedPropertyCards() {
+
     // const properties = useRecoilValueLoadable(propertiesAtom);
 
     const [loading, setLoading] = useState(false);
@@ -26,9 +26,10 @@ export function PropertyCards({useCase}) {
                         'Authorization': `${token}`,
                     }
                 });
-                
+
                 if (response.data.success) {
-                    setProperties(response.data.properties);
+                    const threeProperties = response.data.properties.slice(0, 3);
+                    setProperties(threeProperties);
                 }
                 else {
                     toast.error("Error Occurred");
@@ -39,25 +40,25 @@ export function PropertyCards({useCase}) {
             }
             setLoading(false);
         }
-        
+
         fetchData();
     }, [])
 
-    return(
+    return (
         <div className="flex justify-center items-center">
 
             <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 gap-5">
                 {
-                    loading ? (<Spinner/>) : (
+                    loading ? (<Spinner />) : (
                         properties.length > 0 ?
-                        properties.map(property => <PropertyCard key={property._id} property={property} />) :
-                        <div className="w-full flex items-center justify-start font-semibold text-3xl">
-                            No Properties Found
-                        </div>
+                            properties.map(property => <PropertyCard key={property._id} property={property} />) :
+                            <div className="w-full flex items-center justify-start font-semibold text-3xl">
+                                No Properties Found
+                            </div>
                     )
                 }
-            </div>  
-            
+            </div>
+
         </div>
     )
 }

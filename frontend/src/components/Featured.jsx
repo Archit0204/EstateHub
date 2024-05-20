@@ -1,6 +1,10 @@
-import { PropertyCards } from "./PropertyCards";
+import { useNavigate } from "react-router-dom";
+import { FeaturedPropertyCards } from "./FeaturedPropertyCards";
 
 export default function Featured() {
+
+    const navigate = useNavigate(); 
+
     return (
         <div className="mx-5 p-6 mt-10 border-2 border-myGrey-80 rounded-xl">
 
@@ -15,15 +19,13 @@ export default function Featured() {
 
                     <div>
                         <div>
-                            <button className="bg-myGrey-150 px-[20px] py-[12px] rounded-lg text-white">View All Properties</button>
+                            <button className="bg-myGrey-150 px-[20px] py-[12px] rounded-lg text-white" onClick={() => navigate("/property")}>View All Properties</button>
                         </div>
                     </div>
 
                 </div>
 
-                {/* <div> */}
-                    <PropertyCards/>
-                {/* </div> */}
+                <FeaturedPropertyCards useCase="featured"/>
 
             </div>
 
