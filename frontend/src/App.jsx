@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Authentication from './pages/Authentication'
 import { PropertyPage } from './pages/PropertyPage'
+import Properties from './pages/Properties'
+import { List } from './pages/List'
 
 function App() {
 
@@ -15,7 +17,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/auth' element={<Authentication/>}/>
+        <Route path='/property' element={<Properties/>}/>
         <Route path='/property/:id' element={<PropertyPage/>}/>
+        <Route path='/add' element={<List/>}/>
       </Routes>
     </div>
   )
