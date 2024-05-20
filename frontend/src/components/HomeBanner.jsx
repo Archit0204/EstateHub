@@ -25,7 +25,7 @@ export function HomeBanner() {
 
                     <div className="flex gap-5 w-full flex-row justify-start items-center">
                         <button className="bg-myGrey-80 text-white px-6 py-3 rounded-lg">Learn More</button>
-                        <button className="bg-myViolet-100 text-white px-6 py-3 rounded-lg">Browse Properties</button>
+                        <button className="bg-myViolet-100 text-white px-6 py-3 rounded-lg" onClick={() => navigate("/property")}>Browse Properties</button>
                     </div>
 
                     <div className="grid grid-cols-2 justify-center pr-4 md:grid-cols-3 gap-5">

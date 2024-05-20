@@ -1,9 +1,12 @@
 import { MdOutlineMail } from "react-icons/md";
 import { BsSendFill } from "react-icons/bs";
 import { FaFacebookF, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
 export function Footer() {
+
+    const navigate = useNavigate();
 
     return (
         <div className="bg-myGrey-80 w-full flex flex-col mt-10 gap-8 px-24 pt-24">
@@ -16,7 +19,7 @@ export function Footer() {
                 </div>
 
                 <div>
-                    <button className="bg-myViolet-100 text-white font-medium px-5 py-3 rounded-md">Explore Properties</button>
+                    <button onClick={() => navigate("/property")} className="bg-myViolet-100 text-white font-medium px-5 py-3 rounded-md">Explore Properties</button>
                 </div>
 
             </div>
