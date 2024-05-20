@@ -1,47 +1,7 @@
-import { useRecoilValue, useRecoilValueLoadable } from "recoil";
-import { propertiesAtom } from "../store/atoms/properties";
 import { PropertyCard } from "./PropertyCard";
 import { Spinner } from "./Spinner";
-import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import axios from "axios";
 
-export function PropertyCards({useCase}) {
-    
-    // const properties = useRecoilValueLoadable(propertiesAtom);
-
-    const [loading, setLoading] = useState(false);
-    const [properties, setProperties] = useState([]);
-
-    useEffect(() => {
-
-        async function fetchData() {
-            setLoading(true);
-
-            const token = localStorage.getItem("token");
-            try {
-                const response = await axios.get("http://localhost:3000/api/v1/listings/show", {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `${token}`,
-                    }
-                });
-                
-                if (response.data.success) {
-                    setProperties(response.data.properties);
-                }
-                else {
-                    toast.error("Error Occurred");
-                }
-            }
-            catch (e) {
-                toast.error("Unexprected Error Occurred");
-            }
-            setLoading(false);
-        }
-        
-        fetchData();
-    }, [])
+export function PropertyCards({loading, properties}) {
 
     return(
         <div className="flex justify-center items-center">

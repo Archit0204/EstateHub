@@ -24,10 +24,15 @@ export function PropertyCard({property}) {
         <div className="p-5 flex flex-col mb-8 gap-3 border border-myGrey-150 rounded-lg">
             <img className="rounded-md" src={property.imageUrl} alt="img" />
 
-            <div>
-                <h1 className="text-2xl font-semibold">{property.name}</h1>
-                <p className="text-base font-normal">{property.description}</p>
+            <div className="flex justify-between items-center">
+                <div>
+                    <h1 className="text-2xl font-semibold">{property.name}</h1>
+                    <p className="text-base font-normal">{property.description}</p>
+                </div>
+
+                <p className="text-myGrey-80 font-medium">{property.address}</p>
             </div>
+
 
             <div className="flex justify-evenly">
                 <div className="flex gap-2 items-center bg-myGrey-150 px-2 py-1 rounded-2xl">

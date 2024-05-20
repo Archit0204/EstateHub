@@ -1,9 +1,6 @@
 import { IoIosBed } from "react-icons/io";
 import { FaBath } from "react-icons/fa";
 import { HiMiniBuildingOffice2 } from "react-icons/hi2";
-import { useParams } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { singlePropSelector } from "../store/atoms/properties";
 
 function Property({property}) {
 
@@ -26,6 +23,8 @@ function Property({property}) {
                             <p className="text-myViolet-100 text-4xl font-bold">${property.price}</p>
                         </div>
                     </div>
+
+                    <p className="text-white font-medium mx-10 text-xl">{property.address}</p>
 
                     <div>
                         <div className="bg-myGrey-150 p-10 rounded-3xl">
