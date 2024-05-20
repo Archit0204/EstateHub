@@ -6,9 +6,10 @@ const { propertySchema } = require("../utils/validation");
 exports.listProperty = async(req, res) => {
     try{
         const body = req.body;
-        console.log(body);
+        // console.log(body);
+        
         const file = req.files.imageFile;
-        console.log(file);
+        // console.log(file);
 
         const fileType = file.name.split('.').at(-1).toLowerCase();
 
@@ -22,15 +23,22 @@ exports.listProperty = async(req, res) => {
         const response = await uploadFileToCloudinary(file, "EstateHub");
 
         body.imageUrl = response.secure_url;
+        // console.log(body.imageUrl);
 
-        // const {success} = propertySchema.safeParse(body);
+        body.price = parseInt(body.price);
+        body.bedrooms = parseInt(body.bedrooms);
+        body.bathrooms = parseInt(body.bathrooms);
 
-        // if (!success) {
-        //     return res.status(411).json({
-        //         success: false,
-        //         message: "Invalid Inputs"
-        //     });
-        // }
+        body.featured = body.featured === 'true' ? true : false;
+
+        const {success} = propertySchema.safeParse(body);
+
+        if (!success) {
+            return res.status(411).json({
+                success: false,
+                message: "Invalid Inputs"
+            });
+        }
 
         const userId = req.userId;
         const listing = await Property.create(body);
