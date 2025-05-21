@@ -22,7 +22,7 @@ export function PropertyPage() {
 
             const token = localStorage.getItem("token");
             try {
-                const response = await axios.get(`http://localhost:3000/api/v1/listings/getProp/${id}`, {
+                const response = await axios.get(`${process.env.API_URL}/api/v1/listings/getProp/${id}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `${token}`,

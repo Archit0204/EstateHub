@@ -50,7 +50,7 @@ export function List() {
         const token = localStorage.getItem("token");
 
         try {
-            const response = await axios.post("http://localhost:3000/api/v1/listings/post", data, {
+            const response = await axios.post(`${process.env.API_URL}/api/v1/listings/post`, data, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     'Authorization': `${token}`,

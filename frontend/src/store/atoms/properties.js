@@ -9,7 +9,7 @@ export const propertiesAtom = atom({
 
             const token = localStorage.getItem("token");
             try{
-                const response = await axios.get("http://localhost:3000/api/v1/listings/show", {
+                const response = await axios.get(`${process.env.API_URL}/api/v1/listings/show`, {
                 headers: {
                     'Content-Type': 'application/json', // Example header
                     'Authorization': `${token}`, // Example header
@@ -29,7 +29,7 @@ export const singlePropSelector = selectorFamily({
     get: (id) => async () => {
         const token = localStorage.getItem("token");
             try{
-                const response = await axios.get(`http://localhost:3000/api/v1/listings/getProp/${id}`, {
+                const response = await axios.get(`${process.env.API_URL}/api/v1/listings/getProp/${id}`, {
                 headers: {
                     'Content-Type': 'application/json', // Example header
                     'Authorization': `${token}`, // Example header
