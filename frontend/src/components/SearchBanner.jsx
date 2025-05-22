@@ -26,7 +26,7 @@ export function SearchBanner() {
 
             const token = localStorage.getItem("token");
             try {
-                const response = await axios.get(`${process.env.API_URL}/api/v1/listings/show`, {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/listings/show`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `${token}`,
@@ -92,7 +92,7 @@ export function SearchBanner() {
 
             const token = localStorage.getItem("token");
             try {
-                const response = await axios.get(`${process.env.API_URL}/api/v1/listings/show`, {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/listings/show`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `${token}`,

@@ -35,7 +35,7 @@ function SigninForm({setAuthType}) {
 
         try{
             // const newFormData = JSON.stringify(formData);
-            const response = await axios.post(`${process.env.API_URL}/api/v1/auth/signin`, {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/auth/signin`, {
                 email: formData.email,
                 password: formData.password
             });

@@ -29,7 +29,7 @@ function SignupForm({setAuthType}) {
         e.preventDefault();
 
         try{
-            const response = await axios.post(`${process.env.API_URL}/api/v1/auth/signup`, {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/auth/signup`, {
                 firstName: formData.firstName,
                 lastName: formData.lastName,
                 email: formData.email,
